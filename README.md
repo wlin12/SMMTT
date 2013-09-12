@@ -5,7 +5,7 @@ Social Media Machine Translation Toolkit - Everything you need to start building
 
 This toolkit was proposed as a project in MTMarathon 2013.
 
-Proposed by:Wang Ling
+Proposed and maintained by:Wang Ling (lingwang@cs.cmu.edu)
 
 Contributors: Carolin Haas, Chris Dyer, Adam Lopez
 
