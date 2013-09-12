@@ -1,0 +1,16 @@
+[\u4e00-\u9fa5]| # chinese chars
+[\u3131-\u3163]|[\uac00-\ue8ca]| # korean chars
+[\u3041-\u30fc]| # hiragana and katakana chars
+#[\u1F600-\u1F64F]| # emoticons
+#@[^@\s]{1,10}?:|
+#@[^@\s]{1,10}?：|
+#@[^@\s]{1,1}|
+[\u0600-\u0700]+| # arabic
+([\u0400-\u04FF]|[\u0500-\u052F]|[\u2DE0-\u2DFF]|[\uA640-\uA69F]|[\u1D2B-\u1D78])+| # cyrillic
+[\u0530-\u058F]+| #armenian
+(\p{Alpha}|[\u00C0-\u024F])+| #latin
+\p{Alnum}+| # words 
+\p{Punct}|
+\p{P}|
+❤| # seems to be used often
+[-=]
