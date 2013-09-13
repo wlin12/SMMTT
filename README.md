@@ -9,6 +9,8 @@ Proposed and Maintained by:Wang Ling (http://www.cs.cmu.edu/~lingwang/)
 
 Contributors: Carolin Haas, Chris Dyer, Adam Lopez
 
+requirements: Moses, Giza++ and KenLM - You can follow the guide in http://www.statmt.org/moses/?n=Moses.Baseline, which will get these installed
+
 Usage: scripts/runExperiment.sh source(ex: en) target(ex: zh) rootdir(where this package is) mosesdir(moses instalation) mosesexternaldir(where giza is, probably mosesdecoder/tools) model(where the model and results will be generated)
 
 Structure:

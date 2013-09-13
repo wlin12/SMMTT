@@ -43,7 +43,7 @@ lm=$model/lm
 lmfile=$model/lm.binary
 echo "building language model in $lm"
 mkdir -p $lm
-$MOSES_DIR/bin/lmplz -o 5 -T $ROOT/tmp <$corpora/monolingual.tok.$t >$lm/lm.arpa 
+$MOSES_DIR/bin/lmplz -o 5 -T $ROOT/tmp -S 40% <$corpora/monolingual.tok.$t >$lm/lm.arpa 
 $MOSES_DIR/bin/build_binary $lm/lm.arpa $lmfile
 
 #translation modeling
@@ -52,7 +52,7 @@ tm=$model/tm
 echo "building translation model in $tm"
 $MOSES_DIR/scripts/training/clean-corpus-n.perl $corpora/parallel.tok $s $t $corpora/parallel.tok.train.filtered 1 80
 	
-$MOSES_DIR/scripts/training/train-model.perl -root-dir $tm -corpus $corpora/parallel.tok.train.filtered -f $s -e $t -alignment grow-diag-final-and -reordering msd-bidirectional-fe -lm 0:5:$lmfile:8 -external-bin-dir $MOSES_EXTERNAL_DIR/bin
+$MOSES_DIR/scripts/training/train-model.perl -root-dir $tm -corpus $corpora/parallel.tok.train.filtered -f $s -e $t -alignment grow-diag-final-and -reordering msd-bidirectional-fe -lm 0:5:$lmfile:8 -external-bin-dir $MOSES_EXTERNAL_DIR
 
 cat $corpora/parallel.tok.dev.$s-$t | awk -F' \\|\\|\\| ' '{print $1}' > $corpora/parallel.tok.dev.$s
 cat $corpora/parallel.tok.dev.$s-$t | awk -F' \\|\\|\\| ' '{print $2}' > $corpora/parallel.tok.dev.$t
